@@ -76,10 +76,6 @@ var writerOpts = {
       commit.scope = '';
     }
 
-    if (typeof commit.hash === 'string') {
-      commit.hash = commit.hash.substring(0, 7);
-    }
-
     if (typeof commit.subject === 'string') {
       var url = issueUrl();
       if (url) {
