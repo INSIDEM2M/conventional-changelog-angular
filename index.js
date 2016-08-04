@@ -28,16 +28,8 @@ var parserOpts = {
 };
 
 function issueUrl() {
-  var url = null;
-  if (pkgJson.repository && pkgJson.repository.url && ~pkgJson.repository.url.indexOf('github.com')) {
-    var gitUrl = gufg(pkgJson.repository.url);
-
-    if (gitUrl) {
-      return gitUrl + '/issues/';
-    } else {
-      return url;
-    }
-  }
+  // TODO: Parse JIRA Issue URL
+  return null;
 }
 
 var writerOpts = {
@@ -79,14 +71,12 @@ var writerOpts = {
     if (typeof commit.subject === 'string') {
       var url = issueUrl();
       if (url) {
-        // GitHub issue URLs.
+        // TODO: Replace issue with link to issue url
         commit.subject = commit.subject.replace(/#([0-9]+)/g, function(_, issue) {
           issues.push(issue);
           return '[#' + issue + '](' + url + issue + ')';
         });
       }
-      // GitHub user URLs.
-      commit.subject = commit.subject.replace(/@([a-zA-Z0-9_]+)/g, '[@$1](https://github.com/$1)');
       commit.subject = commit.subject;
     }
 
