@@ -86,7 +86,7 @@ var writerOpts = {
         });
       }
       // GitHub user URLs.
-      commit.subject = commit.subject.replace(/( ?)@([a-zA-Z0-9_]+)(\b|^)/g, '$1[@$2](https://github.com/$2)$3');
+      // commit.subject = commit.subject.replace(/( ?)@([a-zA-Z0-9_]+)(\b|^)/g, '$1[@$2](https://github.com/$2)$3');
       commit.subject = commit.subject;
     }
 
