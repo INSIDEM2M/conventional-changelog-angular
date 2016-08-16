@@ -58,7 +58,7 @@ var writerOpts = {
       commit.type = 'Tests';
     } else if (commit.type === 'chore') {
       commit.type = 'Support/Maintenance/Internal';
-    } else if(commit.subject.match(/^[0-9]+/)) {
+    } else if(!commit.header || commit.header.match(/^[0-9]+/)) {
       // Version up commit
       return;
     } else {
